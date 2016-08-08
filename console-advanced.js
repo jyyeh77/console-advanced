@@ -11,7 +11,7 @@ console.filter = function(object) {
 	if (key[0] !== '_') {
 	    console.log('\t', key,":", object[key]);
 	}
-	
+
     }
     console.log('}');
 }
@@ -21,7 +21,7 @@ console.filter = function(object) {
 console.methods = function(object) {
     console.log("Methods: ", object.name);
     for (var key in object) {
-	if (typeof object[key] === 'function') {	    
+	if (typeof object[key] === 'function') {
 	    console.log( '\t', key, ":", object[key].toString());
 	}
     }
@@ -32,3 +32,24 @@ console.methods = function(object) {
 
 module.exports = console;
 
+///// ALTERNATIVE TO FILTER /////////
+
+// // FILTERER ** removes methods private to users **
+// console.filterer = function(obj){
+//   for (var key in obj){
+//     if (obj.hasOwnProperty(key)){
+//       if (noUnderscore(key)) console.log('Instance method: ', key);
+//       else console.log('Private instance method');
+//     } else {
+//       if (noUnderscore(key)) {
+//         console.log('Prototype method: ', key);
+//       } else {
+//         console.log('Private prototype method');
+//       }
+//     }
+//   }
+// }
+
+// function noUnderscore(str){
+//   return str.charAt(0) !== '_' ? true : false;
+// }
